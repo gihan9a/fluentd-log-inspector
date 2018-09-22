@@ -1,0 +1,52 @@
+class {
+    /**
+     * Return only first reported and last reported
+     */
+    getFirstAndLast(times) {
+        if(times.length == 1) {
+            return times;
+        }
+
+        times.sort();
+        return times.shift() + ' - ' + times.pop();
+    }
+}
+<html>
+    <head>
+        <style type="text/css">
+            .group:after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="group">
+            <!-- list of files goes here -->
+            <div>
+                <h3>Duplicate check mode: <i>${input.mode}</i></h3>
+                <ul>
+                    <for(file in input.files.sort((a, b) => {
+                        return a.localeCompare(b, undefined, {numeric: true, sensitivity: 'base'});
+                    }))>
+                    <li>
+                        <a href="/?file=${file}#inspected">${file}</a>
+                    </li>
+                    </for>
+                </ul>
+            </div>
+            <!-- content goes here -->
+            <div>
+                <if(input.data)>
+                    <h3 id="inspected">${input.file}</h3>
+                    <for(row in input.data)>
+                        <pre>${row.m}</pre>
+                        <pre>${row.t.length} Times | ${component.getFirstAndLast(row.t)}</pre>
+                        <hr />
+                    </for>
+                </if>
+            </div>
+        </div>
+    </body>
+</html>

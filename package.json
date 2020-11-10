@@ -1,0 +1,26 @@
+{
+  "name": "fluentd-log-inspector",
+  "version": "1.0.0",
+  "description": "Inspect fluentd logs",
+  "main": "index.js",
+  "scripts": {
+    "inspect": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Gihan S <gihanshp@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "koa": "^2.5.0",
+    "marko": "^4.8.0",
+    "minimist": "^1.2.0",
+    "rimraf": "^2.6.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
